@@ -1,0 +1,304 @@
+/* =========================
+   RESET
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+/* =========================
+   BODY
+========================= */
+
+body{
+    min-height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-family:Arial, Helvetica, sans-serif;
+
+    background:#77A8BB;
+}
+
+/* =========================
+   GAME CONTAINER
+========================= */
+
+.game-container{
+    text-align:center;
+}
+
+h1{
+    color:white;
+    margin-bottom:15px;
+    font-size:2rem;
+}
+
+/* =========================
+   SCORE / LIVES
+========================= */
+
+.stats{
+    width:400px;
+
+    margin:auto;
+    margin-bottom:12px;
+
+    display:flex;
+    justify-content:space-between;
+
+    color:white;
+    font-size:1.2rem;
+    font-weight:bold;
+}
+
+#message{
+    color:white;
+    font-weight:bold;
+
+    min-height:30px;
+
+    margin-bottom:15px;
+}
+
+/* =========================
+   GAME AREA
+========================= */
+
+#gameArea{
+    width:400px;
+    height:600px;
+
+    position:relative;
+    overflow:hidden;
+
+    background:#555;
+
+    border:6px solid #FFC907;
+
+    border-radius:12px;
+}
+
+/* =========================
+   ROAD STRIPES
+========================= */
+
+#gameArea::before{
+    content:"";
+
+    position:absolute;
+
+    left:133.33px;
+    top:0;
+
+    width:4px;
+    height:100%;
+
+    background:white;
+}
+
+#gameArea::after{
+    content:"";
+
+    position:absolute;
+
+    left:266.66px;
+    top:0;
+
+    width:4px;
+    height:100%;
+
+    background:white;
+}
+
+/* =========================
+   LANES
+========================= */
+
+.lane{
+    position:absolute;
+    height:100%;
+    width:1px;
+}
+
+.lane1{
+    left:133.33px;
+}
+
+.lane2{
+    left:266.66px;
+}
+
+/* =========================
+   PLAYER
+========================= */
+#player{
+    width:110px;
+    height:140px;
+
+    position:absolute;
+    bottom:10px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    transition:left .15s ease;
+    z-index:20;
+}
+
+#player img{
+    width:300%;
+    height:300%;
+
+    object-fit:contain;
+}
+
+/* =========================
+   WATER DROPS
+========================= */
+
+.water{
+    position:absolute;
+
+    width:80px;
+    height:80px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:3rem;
+
+    z-index:10;
+}
+
+.water::after{
+    content:"💧";
+}
+
+/* =========================
+   POLLUTION
+========================= */
+
+.pollution{
+    position:absolute;
+
+    width:80px;
+    height:80px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:3rem;
+
+    z-index:10;
+}
+
+.pollution::after{
+    content:"☣";
+}
+
+/* =========================
+   OVERLAY
+========================= */
+
+#overlay{
+    position:absolute;
+    inset:0;
+
+    background:rgba(0,0,0,.75);
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    padding:20px;
+
+    z-index:100;
+}
+
+.hidden{
+    display:none !important;
+}
+
+#overlayContent{
+
+    background:white;
+
+    max-width:300px;
+
+    padding:25px;
+
+    border-radius:12px;
+
+    text-align:center;
+
+    color:#333;
+
+    box-shadow:0 0 20px rgba(0,0,0,.3);
+}
+
+#overlayContent h2{
+    margin-bottom:15px;
+}
+
+#overlayContent p{
+    margin-bottom:10px;
+    line-height:1.4;
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+button{
+
+    margin-top:15px;
+
+    padding:12px 25px;
+
+    border:none;
+    border-radius:8px;
+
+    background:#FFC907;
+
+    color:#222;
+
+    font-size:1rem;
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.2s;
+}
+
+button:hover{
+    transform:scale(1.05);
+}
+
+button:active{
+    transform:scale(.98);
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:500px){
+
+    #gameArea{
+        width:90vw;
+        max-width:400px;
+    }
+
+    .stats{
+        width:90vw;
+        max-width:400px;
+    }
+}
