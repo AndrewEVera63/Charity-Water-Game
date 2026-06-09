@@ -58,15 +58,22 @@ const overlay = document.getElementById("overlay");
 const overlayContent = document.getElementById("overlayContent");
 
 /* PERFECTLY CENTERED LANES */
-
-const gameWidth = 400;
-const playerWidth = 110;
+const gameWidth = gameArea.offsetWidth;
 const laneWidth = gameWidth / 3;
 
-const lanes = [
+const playerWidth = 120;
+const objectWidth = 80;
+
+const playerLanes = [
     laneWidth * 0 + (laneWidth - playerWidth) / 2,
     laneWidth * 1 + (laneWidth - playerWidth) / 2,
     laneWidth * 2 + (laneWidth - playerWidth) / 2
+];
+
+const objectLanes = [
+    laneWidth * 0 + (laneWidth - objectWidth) / 2,
+    laneWidth * 1 + (laneWidth - objectWidth) / 2,
+    laneWidth * 2 + (laneWidth - objectWidth) / 2
 ];
 
 let currentLane = 1;
@@ -84,7 +91,7 @@ let gameRunning = false;
 let objectSpawner;
 let gameLoop;
 
-player.style.left = lanes[currentLane] + "px";
+player.style.left = playerLanes[currentLane] + "px";
 
 /* PLAYER MOVEMENT */
 
@@ -100,7 +107,7 @@ document.addEventListener("keydown", (e) => {
         currentLane++;
     }
 
-    player.style.left = lanes[currentLane] + "px";
+    player.style.left = playerLanes[currentLane] + "px";
 });
 
 /* CREATE WATER OR POLLUTION */
@@ -122,7 +129,7 @@ function createObject() {
 
     const lane = Math.floor(Math.random() * 3);
 
-    item.style.left = lanes[lane] + "px";
+    item.style.left = objectLanes[lane] + "px";
     item.style.top = "-80px";
 
     gameArea.appendChild(item);
@@ -291,8 +298,7 @@ function startGame() {
 
     currentLane = 1;
 
-    player.style.left =
-        lanes[currentLane] + "px";
+   player.style.left = playerLanes[currentLane] + "px";
 
     message.textContent =
         "Collect water drops and avoid pollution!";
