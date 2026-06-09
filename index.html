@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Water Quest Runner</title>
+    <title>Charity::Water Game</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <div class="game-container">
-
-    <h1>💧 Water Quest Runner</h1>
+<img src="logoheader.png" alt="Water Quest Logo" class="header-logo">
+    <h1> Water Quest </h1>
 
     <div class="stats">
         <div>Score: <span id="score">0</span></div>
@@ -381,6 +381,48 @@ startBtn.addEventListener(
     "click",
     startGame
 );
+
+
+/* MOBILE SWIPE CONTROLS */
+
+let startX = 0;
+
+gameArea.addEventListener("touchstart", (e) => {
+
+    if (!gameRunning) return;
+
+    startX = e.touches[0].clientX;
+
+});
+
+gameArea.addEventListener("touchend", (e) => {
+
+    if (!gameRunning) return;
+
+    const endX = e.changedTouches[0].clientX;
+
+    const diff = endX - startX;
+
+    /* Swipe Right */
+
+    if (diff > 50 && currentLane < 2) {
+
+        currentLane++;
+
+    }
+
+    /* Swipe Left */
+
+    else if (diff < -50 && currentLane > 0) {
+
+        currentLane--;
+
+    }
+
+    player.style.left =
+        playerLanes[currentLane] + "px";
+
+});
 
 </script>
 
