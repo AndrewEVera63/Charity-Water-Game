@@ -94,6 +94,8 @@ h1{
     border:6px solid #FFC907;
 
     border-radius:12px;
+
+    touch-action:none; /* ADD THIS */
 }
 
 /* =========================
