@@ -230,9 +230,20 @@ function checkMilestones() {
     }
 }
 
+
+
+
+
+
+
+
+
 /* START GAME */
 
 function beginGame() {
+
+    clearInterval(objectSpawner);
+clearInterval(gameLoop);
 
     overlay.classList.add("hidden");
 
