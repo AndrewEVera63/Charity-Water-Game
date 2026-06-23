@@ -40,6 +40,7 @@ let spawnRate = 800;
 let winScore = 500;
 
 let gameRunning = false;
+let firstGame = true;
 
 let objectSpawner;
 let gameLoop;
@@ -232,7 +233,7 @@ function checkMilestones() {
 
 /* START GAME */
 
-function startGame() {
+function beginGame() {
 
     overlay.classList.add("hidden");
 
@@ -330,10 +331,24 @@ function gameOver() {
 
 /* START BUTTON */
 
-startBtn.addEventListener(
-    "click",
-    startGame
-);
+startBtn.addEventListener("click", () => {
+
+    if (firstGame) {
+
+        const instructions =
+            new bootstrap.Modal(
+                document.getElementById("instructionsModal")
+            );
+
+        instructions.show();
+
+    } else {
+
+        beginGame();
+
+    }
+
+});
 
 
 /* MOBILE SWIPE CONTROLS */
@@ -371,4 +386,19 @@ gameArea.addEventListener("touchend", (e) => {
 
 }, { passive: false });
 
-src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js";
+const playNowBtn = document.getElementById("playNowBtn");
+
+playNowBtn.addEventListener("click", () => {
+
+    firstGame = false;
+
+    const instructions =
+        bootstrap.Modal.getInstance(
+            document.getElementById("instructionsModal")
+        );
+
+    instructions.hide();
+
+    beginGame();
+
+});
