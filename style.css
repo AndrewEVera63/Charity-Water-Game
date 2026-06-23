@@ -332,6 +332,82 @@ button:active{
 }
 
 
+/* BUTTON GROUP */
+
+.button-group{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:15px;
+
+    margin-top:15px;
+}
+
+/* BOTH BUTTONS */
+
+.game-btn{
+
+    width:170px;
+
+    padding:12px 0;
+
+    background:#FFC907;
+
+    color:#222;
+
+    border:none;
+
+    border-radius:8px;
+
+    font-size:1rem;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.2s;
+}
+
+.game-btn:hover{
+
+    transform:scale(1.05);
+
+}
+
+.game-btn:active{
+
+    transform:scale(.98);
+
+}
+
+/* MODAL */
+
+.modal-header{
+
+    background:#FFC907;
+
+}
+
+.modal-title{
+
+    font-weight:bold;
+
+}
+
+.modal-body h5{
+
+    color:#1D7EA5;
+
+}
+
+.modal-content{
+
+    border-radius:15px;
+
+}
+
 
 /* =========================
    MOBILE

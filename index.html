@@ -40,65 +40,93 @@
 
     </div>
 
-   <button id="startBtn">Start Game</button>
+   <div class="button-group">
+
+    <button
+        type="button"
+        id="instructionsBtn"
+        class="game-btn"
+        data-bs-toggle="modal"
+        data-bs-target="#instructionsModal">
+
+        📖 How to Play
+
+    </button>
+
+    <button
+        id="startBtn"
+        class="game-btn">
+
+        ▶ Start Game
+
+    </button>
+
+</div>
 
 </div>
 
 <!-- Instructions Modal -->
-<div class="modal fade" id="instructionsModal" tabindex="-1">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
+<div
+class="modal fade"
+id="instructionsModal"
+tabindex="-1">
 
-      <div class="modal-header bg-warning">
-        <h5 class="modal-title">💧 How to Play Water Quest</h5>
+<div class="modal-dialog modal-dialog-centered">
 
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="modal">
-        </button>
-      </div>
+<div class="modal-content">
 
-      <div class="modal-body">
+<div class="modal-header">
 
-        <h5>🌍 Mission</h5>
+<h5 class="modal-title">
+💧 How to Play
+</h5>
 
-        <p>
-          Help bring clean water to communities by collecting water drops while avoiding pollution.
-        </p>
+<button
+type="button"
+class="btn-close"
+data-bs-dismiss="modal">
+</button>
 
-        <hr>
+</div>
 
-        <h5>🎮 How to Play</h5>
+<div class="modal-body">
 
-        <ul>
-          <li>💧 Collect water drops to earn <strong>10 points</strong>.</li>
-          <li>☣ Avoid pollution obstacles or you'll lose one life.</li>
-          <li>❤️ You start with <strong>3 lives</strong>.</li>
-          <li>🏆 Reach <strong>500 points</strong> to win!</li>
-        </ul>
+<h5>🌍 Mission</h5>
 
-        <hr>
+<p>
+Collect clean water drops while avoiding pollution to help bring clean water to communities around the world.
+</p>
 
-        <h5>🕹 Controls</h5>
+<hr>
 
-        <ul>
-          <li>💻 Desktop: Use the ← → arrow keys.</li>
-          <li>📱 Mobile: Swipe left or right.</li>
-        </ul>
+<h5>🎮 Gameplay</h5>
 
-      </div>
+<ul>
+<li>💧 Water Drops = <strong>+10 Points</strong></li>
+<li>☣ Pollution = <strong>Lose 1 Life</strong></li>
+<li>❤️ You begin with <strong>3 Lives</strong></li>
+<li>🏆 Reach <strong>500 Points</strong> to win!</li>
+</ul>
 
-      <div class="modal-footer">
-        <button
-          id="playNowBtn"
-          class="btn btn-primary">
-          Let's Go!
-        </button>
-      </div>
+<hr>
 
-    </div>
-  </div>
+<h5>🕹 Controls</h5>
+
+<ul>
+<li>💻 Desktop: Use the ← and → arrow keys.</li>
+<li>📱 Mobile: Swipe left or right.</li>
+</ul>
+
+<p class="text-center mt-3">
+<strong>Good luck and have fun! 💛</strong>
+</p>
+
+</div>
+
+</div>
+
+</div>
+
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

@@ -40,7 +40,6 @@ let spawnRate = 800;
 let winScore = 500;
 
 let gameRunning = false;
-let firstGame = true;
 
 let objectSpawner;
 let gameLoop;
@@ -259,7 +258,7 @@ function beginGame() {
 
     gameRunning = true;
 
-    startBtn.textContent = "Restart Game";
+   startBtn.innerHTML = "🔄 Restart Game";
 
     clearInterval(objectSpawner);
     clearInterval(gameLoop);
@@ -331,24 +330,7 @@ function gameOver() {
 
 /* START BUTTON */
 
-startBtn.addEventListener("click", () => {
-
-    if (firstGame) {
-
-        const instructions =
-            new bootstrap.Modal(
-                document.getElementById("instructionsModal")
-            );
-
-        instructions.show();
-
-    } else {
-
-        beginGame();
-
-    }
-
-});
+startBtn.addEventListener("click", beginGame);
 
 
 /* MOBILE SWIPE CONTROLS */
@@ -386,19 +368,24 @@ gameArea.addEventListener("touchend", (e) => {
 
 }, { passive: false });
 
-const playNowBtn = document.getElementById("playNowBtn");
+const instructionsModal = document.getElementById("instructionsModal");
 
-playNowBtn.addEventListener("click", () => {
+// Pause the game when the modal opens
+instructionsModal.addEventListener("show.bs.modal", () => {
 
-    firstGame = false;
+    if (!gameRunning) return;
 
-    const instructions =
-        bootstrap.Modal.getInstance(
-            document.getElementById("instructionsModal")
-        );
+    clearInterval(objectSpawner);
+    clearInterval(gameLoop);
 
-    instructions.hide();
+});
 
-    beginGame();
+// Resume the game when the modal closes
+instructionsModal.addEventListener("hidden.bs.modal", () => {
+
+    if (!gameRunning) return;
+
+    objectSpawner = setInterval(createObject, spawnRate);
+    gameLoop = setInterval(updateObjects, 20);
 
 });
