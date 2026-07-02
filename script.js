@@ -29,6 +29,12 @@ const objectLanes = [
     laneWidth * 2 + (laneWidth - objectWidth) / 2
 ];
 
+
+const collectSound = document.getElementById("collectSound");
+const hitSound = document.getElementById("hitSound");
+const clickSound = document.getElementById("clickSound");
+const winSound = document.getElementById("winSound");
+
 let currentLane = 1;
 
 let score = 0;
@@ -119,6 +125,8 @@ function updateObjects() {
             if (obj.dataset.type === "water") {
 
                 score += 10;
+                collectSound.currentTime = 0;
+                collectSound.play();
 
                 scoreDisplay.textContent = score;
 
@@ -133,6 +141,8 @@ function updateObjects() {
             } else {
 
                 lives--;
+                hitSound.currentTime = 0;
+                hitSound.play();
 
                 livesDisplay.textContent = lives;
 
@@ -241,6 +251,8 @@ function checkMilestones() {
 /* START GAME */
 
 function beginGame() {
+    clickSound.currentTime = 0;
+clickSound.play();
 
     clearInterval(objectSpawner);
 clearInterval(gameLoop);
@@ -284,6 +296,8 @@ clearInterval(gameLoop);
 /* WIN */
 
 function gameWon() {
+    winSound.currentTime = 0;
+winSound.play();
 
     gameRunning = false;
 
