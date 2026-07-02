@@ -15,15 +15,12 @@
 body{
     min-height:100vh;
 
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
     font-family:Arial, Helvetica, sans-serif;
 
     background:#77A8BB;
-}
 
+    text-align:center;
+}
 /* =========================
    GAME CONTAINER
 ========================= */
@@ -94,22 +91,21 @@ h1{
     background:white;
 
     border:6px solid #FFC907;
-
     border-radius:12px;
 
-    touch-action:none; /* ADD THIS */
+    touch-action:none;
 }
-
 /* =========================
    ROAD STRIPES
 ========================= */
 
+/* ROAD STRIPES */
+
 #gameArea::before{
     content:"";
-
     position:absolute;
 
-    left:133.33px;
+    left:123.33px;
     top:0;
 
     width:4px;
@@ -120,10 +116,9 @@ h1{
 
 #gameArea::after{
     content:"";
-
     position:absolute;
 
-    left:266.66px;
+    left:246.66px;
     top:0;
 
     width:4px;
@@ -132,22 +127,14 @@ h1{
     background:#CBCCD1;
 }
 
-/* =========================
-   LANES
-========================= */
-
-.lane{
-    position:absolute;
-    height:100%;
-    width:1px;
-}
+/* LANE MARKERS */
 
 .lane1{
-    left:133.33px;
+    left:123.33px;
 }
 
 .lane2{
-    left:266.66px;
+    left:246.66px;
 }
 
 /* =========================
@@ -160,19 +147,17 @@ h1{
     width:120px;
     height:150px;
 
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    transition:left .15s ease;
-    z-index:20;
+    border:2px solid red;   /* Temporary */
 }
 
 #player img{
-    width:300%;
-    height:300%;
+    width:100%;
+    height:100%;
 
     object-fit:contain;
+
+    transform:scale(3);
+    transform-origin:center center;
 }
 
 /* =========================
